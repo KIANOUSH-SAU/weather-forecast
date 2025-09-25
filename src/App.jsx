@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import ForecastCard from "./components/ForecastCard";
-import ForecastTable from "./components/ForecastTable";
 import { getWeatherData } from "./services/api";
 
 function App() {
@@ -50,9 +49,10 @@ function App() {
 						description={weatherData.description}
 						weatherIcon="wi-day-cloudy-gusts"
 					/>
-					{console.log(weatherData)}
-					<ForecastCard />
-					<ForecastTable />
+					{/* {console.log(weatherData)}
+					{console.log(weatherData.days[0].hours)} */}
+					{console.log(weatherData.days[0])}
+					<ForecastCard hours={weatherData.days[0].hours} />
 				</>
 			) : (
 				// Optionally, show a loading message while the data is being fetched
