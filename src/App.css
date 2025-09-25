@@ -89,6 +89,11 @@
 	height: 150px;
 }
 
+#weather-image-widget i {
+	font-size: 120px; /* You can adjust this value to your liking */
+	line-height: 1; /* Ensures the icon is centered vertically */
+}
+
 @media (max-width: 600px) {
 	#search-form {
 		flex-direction: column;

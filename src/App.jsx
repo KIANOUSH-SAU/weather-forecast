@@ -44,7 +44,13 @@ function App() {
 			</form>
 			{weatherData ? (
 				<>
-					<Header temperature={weatherData.currentConditions.temp} />
+					<Header
+						temp={weatherData.currentConditions.temp}
+						address={weatherData.address}
+						description={weatherData.description}
+						weatherIcon="wi-day-cloudy-gusts"
+					/>
+					{console.log(weatherData)}
 					<ForecastCard />
 					<ForecastTable />
 				</>
