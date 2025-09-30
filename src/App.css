@@ -80,7 +80,14 @@
 #weather-image-widget {
 	padding: 2rem;
 	border-radius: 20px;
+}
+
+.day-theme {
 	background: #ffe600;
+	box-shadow: 20px 20px 60px #ffe1003f, -20px -20px 60px #ffc8001f;
+}
+.night-theme {
+	background: #19237d;
 	box-shadow: 20px 20px 60px #ffe1003f, -20px -20px 60px #ffc8001f;
 }
 

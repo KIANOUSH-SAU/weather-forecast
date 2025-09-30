@@ -3,6 +3,7 @@ import "./App.css";
 import Header from "./components/Header";
 import ForecastCard from "./components/ForecastCard";
 import { getWeatherData } from "./services/api";
+import { iconHandler } from "./services/iconHandler";
 
 function App() {
 	const [searchQuery, setSearchQuery] = useState("");
@@ -47,11 +48,22 @@ function App() {
 						temp={weatherData.currentConditions.temp}
 						address={weatherData.address}
 						description={weatherData.description}
-						weatherIcon="wi-day-cloudy-gusts"
+						datetime={weatherData.days[0].datetime}
+						datetimeEpoch={weatherData.days[0].datetimeEpoch}
+						weatherIcon={iconHandler(
+							weatherData.currentConditions.conditions,
+							weatherData.currentConditions.temp,
+							weatherData.currentConditions.preciptype
+						)}
 					/>
+
 					{/* {console.log(weatherData)}
 					{console.log(weatherData.days[0].hours)} */}
-					{console.log(weatherData.days[0])}
+					{console.log("Log from the App.jsx", weatherData.days[0])}
+					{console.log(
+						"Logging datetimeEpoch from the App.jsx",
+						weatherData.days[0].datetimeEpoch
+					)}
 					<ForecastCard hours={weatherData.days[0].hours} />
 				</>
 			) : (
