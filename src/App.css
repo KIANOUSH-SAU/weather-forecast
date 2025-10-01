@@ -34,14 +34,36 @@
 }
 
 #forecast-card-container {
-	width: 100%;
+	display: flex;
+	gap: 1rem;
+	overflow-x: auto;
+	padding: 1rem 0;
 	margin-top: 2rem;
-	border-collapse: separate;
-	border-spacing: 1rem;
-	border-radius: 20px;
+
+	/* Beautiful scrollbar styling */
+	scrollbar-width: thin;
+	scrollbar-color: #bebebe #e0e0e0;
+}
+
+/* Webkit browsers (Chrome, Safari, Edge) */
+#forecast-card-container::-webkit-scrollbar {
+	height: 8px;
+}
+
+#forecast-card-container::-webkit-scrollbar-track {
 	background: #e0e0e0;
-	box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
-	text-align: center;
+	border-radius: 10px;
+	box-shadow: inset 2px 2px 5px #bebebe, inset -2px -2px 5px #ffffff;
+}
+
+#forecast-card-container::-webkit-scrollbar-thumb {
+	background: linear-gradient(135deg, #c9c9c9, #d4d4d4);
+	border-radius: 10px;
+	box-shadow: 2px 2px 5px #bebebe, -2px -2px 5px #ffffff;
+}
+
+#forecast-card-container::-webkit-scrollbar-thumb:hover {
+	background: linear-gradient(135deg, #b8b8b8, #c9c9c9);
 }
 
 #forecast-card-container img {
