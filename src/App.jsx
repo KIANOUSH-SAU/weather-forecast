@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import Header from "./components/Header";
-import ForecastCard from "./components/ForecastCard";
+import ForecastCards from "./components/ForecastCards";
 import { getWeatherData } from "./services/api";
 import { iconHandler } from "./services/iconHandler";
 
@@ -49,22 +49,13 @@ function App() {
 						address={weatherData.address}
 						description={weatherData.description}
 						datetime={weatherData.days[0].datetime}
-						datetimeEpoch={weatherData.days[0].datetimeEpoch}
 						weatherIcon={iconHandler(
 							weatherData.currentConditions.conditions,
 							weatherData.currentConditions.temp,
 							weatherData.currentConditions.preciptype
 						)}
 					/>
-
-					{/* {console.log(weatherData)}
-					{console.log(weatherData.days[0].hours)} */}
-					{console.log("Log from the App.jsx", weatherData.days[0])}
-					{console.log(
-						"Logging datetimeEpoch from the App.jsx",
-						weatherData.days[0].datetimeEpoch
-					)}
-					<ForecastCard hours={weatherData.days[0].hours} />
+					<ForecastCards hours={weatherData.days[0].hours} />
 				</>
 			) : (
 				// Optionally, show a loading message while the data is being fetched

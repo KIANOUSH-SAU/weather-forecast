@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 #search-form {
 	display: flex;
 	gap: 1rem;
@@ -31,7 +33,7 @@
 	margin: 0.5rem 0;
 }
 
-#forecast-card {
+#forecast-card-container {
 	width: 100%;
 	margin-top: 2rem;
 	border-collapse: separate;
@@ -42,19 +44,7 @@
 	text-align: center;
 }
 
-#forecast-card th,
-#forecast-card td {
-	padding: 1rem;
-	border-radius: 10px;
-	background: #e0e0e0;
-	box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
-}
-
-#forecast-card th {
-	box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
-}
-
-#forecast-card img {
+#forecast-card-container img {
 	width: 50px;
 	height: 50px;
 }

@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import rainyImg from "../assets/rainy.png";
-import dayImg from "../assets/day-time.png";
 import { timeHandler } from "../services/timeHandler";
 
 export default function WidgetCard({
@@ -26,8 +24,7 @@ export default function WidgetCard({
 			fetchTime();
 		}
 	}, [address]);
-	console.log(typeof currentTime);
-	console.log(currentTime);
+
 	let timeOnly = "";
 	if (currentTime !== "Loading...") {
 		timeOnly = currentTime.split(",")[1].trim();
