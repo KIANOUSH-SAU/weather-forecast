@@ -5,6 +5,7 @@ import ForecastCards from "./components/ForecastCards";
 import { getWeatherData } from "./services/api";
 import { iconHandler } from "./services/iconHandler";
 import RainFall from "./animations/RainFall";
+import Sunny from "./animations/day/Sunny";
 
 function App() {
 	const [searchQuery, setSearchQuery] = useState("");
@@ -32,7 +33,8 @@ function App() {
 
 	return (
 		<>
-			<RainFall />
+			{/* <RainFall /> */}
+			<Sunny />
 			<form onSubmit={handleSearch} id="search-form">
 				<input
 					type="text"

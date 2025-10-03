@@ -15,10 +15,17 @@ const RainFall = () => {
 			borderBottomRightRadius: "100%",
 		});
 
+		gsap.to(".sun", {
+			scale: 1.2,
+			duration: 5,
+			yoyo: true,
+			repeat: -1,
+		});
+
 		// Cloud animation
 		gsap.to(".cloud", {
 			duration: 20,
-			x: 250,
+			x: () => gsap.utils.random([-250, 250]),
 			yoyo: true,
 			repeat: -1,
 			stagger: {
@@ -58,7 +65,7 @@ const RainFall = () => {
 			<Sky>
 				<div className="w-full overflow-hidden">
 					<div className="flex gap-2 ">
-						<Sun />
+						<Sun className="sun" />
 						<Cloud className="cloud" />
 						<Cloud className="cloud" />
 						<Cloud className="cloud" />
@@ -77,6 +84,11 @@ const RainFall = () => {
 			</Sky>
 
 			<div id="rain" className="w-full h-2x flex gap-2">
+				<div className="rain-drop w-5 h-10 rounded-lg"></div>
+				<div className="rain-drop w-5 h-10 rounded-lg"></div>
+				<div className="rain-drop w-5 h-10 rounded-lg"></div>
+				<div className="rain-drop w-5 h-10 rounded-lg"></div>
+				<div className="rain-drop w-5 h-10 rounded-lg"></div>
 				<div className="rain-drop w-5 h-10 rounded-lg"></div>
 				<div className="rain-drop w-5 h-10 rounded-lg"></div>
 				<div className="rain-drop w-5 h-10 rounded-lg"></div>

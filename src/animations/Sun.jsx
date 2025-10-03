@@ -1,6 +1,10 @@
-const Sun = () => {
+const Sun = ({ className }) => {
 	return (
-		<div className={`flex justify-center items-center p-8`}>
+		<div
+			className={`flex justify-center items-center p-8 ${
+				className || ""
+			}`}
+		>
 			<div className="relative">
 				<div
 					className="w-20 h-20 bg-amber-200 rounded-full relative flex justify-center items-center"
