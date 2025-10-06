@@ -1,4 +1,4 @@
-const Sky = ({ children }) => {
+const DaySky = ({ children }) => {
 	return (
 		<div className="relative w-full overflow-hidden">
 			{/* Main sky gradient */}
@@ -25,4 +25,4 @@ const Sky = ({ children }) => {
 	);
 };
 
-export default Sky;
+export default DaySky;

@@ -1,8 +1,8 @@
-import Sky from "../Sky";
-import Sun from "../Sun";
+import DaySky from "./day/DaySky";
+import Sun from "./Sun";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import Cloud from "../Cloud";
+import Cloud from "./Cloud";
 const Sunny = ({ className }) => {
 	useGSAP(() => {
 		gsap.set(".cloud", {
@@ -31,17 +31,15 @@ const Sunny = ({ className }) => {
 
 	return (
 		<>
-			<Sky>
-				<div className="w-full overflow-hidden">
-					<div className="flex gap-2">
-						<Sun className="sun" />
-						<Cloud className="cloud" />
-						<Cloud className="cloud" />
-						<Cloud className="cloud" />
-						<Cloud className="cloud" />
-					</div>
+			<div className="w-full overflow-hidden">
+				<div className="flex gap-2">
+					<Sun className="sun" />
+					<Cloud className="cloud" />
+					<Cloud className="cloud" />
+					<Cloud className="cloud" />
+					<Cloud className="cloud" />
 				</div>
-			</Sky>
+			</div>
 		</>
 	);
 };

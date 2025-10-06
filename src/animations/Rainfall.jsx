@@ -1,7 +1,7 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import Cloud from "./Cloud";
-import Sky from "./Sky";
+import DaySky from "./day/DaySky";
 import Sun from "./Sun";
 
 const RainFall = () => {
@@ -62,7 +62,7 @@ const RainFall = () => {
 
 	return (
 		<>
-			<Sky>
+			<DaySky>
 				<div className="w-full overflow-hidden">
 					<div className="flex gap-2 ">
 						<Sun className="sun" />
@@ -81,7 +81,7 @@ const RainFall = () => {
 						<Cloud className="cloud" />
 					</div>
 				</div>
-			</Sky>
+			</DaySky>
 
 			<div id="rain" className="w-full h-2x flex gap-2">
 				<div className="rain-drop w-5 h-10 rounded-lg"></div>

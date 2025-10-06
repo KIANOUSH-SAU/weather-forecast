@@ -1,16 +1,19 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import ForecastCards from "./components/ForecastCards";
 import { getWeatherData } from "./services/api";
 import { iconHandler } from "./services/iconHandler";
-import RainFall from "./animations/RainFall";
-import Sunny from "./animations/day/Sunny";
+import { timeHandler } from "./services/timeHandler"; // Add this import
+import DayTime from "./animations/day/DayTime";
+import NightTime from "./animations/night/NightTime";
 
 function App() {
 	const [searchQuery, setSearchQuery] = useState("");
 	const [location, setLocation] = useState("Sakarya");
 	const [weatherData, setWeatherData] = useState(null);
+	const [currentTime, setCurrentTime] = useState("Loading...");
+	const timeOnly = useRef();
 	useEffect(() => {
 		const fetchWeather = async () => {
 			try {
@@ -26,6 +29,24 @@ function App() {
 		fetchWeather();
 	}, [location]);
 
+	useEffect(() => {
+		const fetchTime = async () => {
+			try {
+				const time = await timeHandler(weatherData.address);
+				setCurrentTime(time);
+			} catch (error) {
+				setCurrentTime("Time unavailable");
+			}
+		};
+
+		// Fix: Check if weatherData exists AND has address
+		if (weatherData && weatherData.address) {
+			fetchTime();
+		}
+	}, [weatherData]); // Changed dependency to weatherData instead of weatherData.address
+	if (currentTime !== "Loading...") {
+		timeOnly.current = currentTime.split(",")[1].trim();
+	}
 	function handleSearch(event) {
 		event.preventDefault();
 		setLocation(searchQuery);
@@ -34,7 +55,14 @@ function App() {
 	return (
 		<>
 			{/* <RainFall /> */}
-			<Sunny />
+			{/* <Sunny /> */}
+			{/* <Stars /> */}
+
+			{parseInt(timeOnly.current?.split(":")[0]) > 18 ? (
+				<DayTime weatherType={"snowy"} />
+			) : (
+				<NightTime weatherType={"snowy"} />
+			)}
 			<form onSubmit={handleSearch} id="search-form">
 				<input
 					type="text"
