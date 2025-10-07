@@ -7,6 +7,8 @@ import { iconHandler } from "./services/iconHandler";
 import { timeHandler } from "./services/timeHandler"; // Add this import
 import DayTime from "./animations/day/DayTime";
 import NightTime from "./animations/night/NightTime";
+import Moon from "./animations/Moon";
+import Starry from "./animations/Starry";
 
 function App() {
 	const [searchQuery, setSearchQuery] = useState("");
@@ -58,11 +60,14 @@ function App() {
 			{/* <Sunny /> */}
 			{/* <Stars /> */}
 
-			{parseInt(timeOnly.current?.split(":")[0]) > 18 ? (
-				<DayTime weatherType={"snowy"} />
+			{/* {parseInt(timeOnly.current?.split(":")[0]) > 18 ? (
+				<DayTime weatherType={"rainy"} timeOnlyRef={timeOnly} />
 			) : (
-				<NightTime weatherType={"snowy"} />
-			)}
+				<NightTime weatherType={"rainy"} timeOnlyRef={timeOnly} />
+			)} */}
+
+			{/* <Moon /> */}
+			<Starry />
 			<form onSubmit={handleSearch} id="search-form">
 				<input
 					type="text"

@@ -31,15 +31,17 @@ const Sunny = ({ className }) => {
 
 	return (
 		<>
-			<div className="w-full overflow-hidden">
-				<div className="flex gap-2">
-					<Sun className="sun" />
-					<Cloud className="cloud" />
-					<Cloud className="cloud" />
-					<Cloud className="cloud" />
-					<Cloud className="cloud" />
+			<DaySky>
+				<div className="w-full overflow-hidden">
+					<div className="flex gap-2">
+						<Sun className="sun" />
+						<Cloud className="cloud" />
+						<Cloud className="cloud" />
+						<Cloud className="cloud" />
+						<Cloud className="cloud" />
+					</div>
 				</div>
-			</div>
+			</DaySky>
 		</>
 	);
 };

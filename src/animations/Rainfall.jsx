@@ -4,7 +4,7 @@ import Cloud from "./Cloud";
 import DaySky from "./day/DaySky";
 import Sun from "./Sun";
 
-const RainFall = () => {
+const RainFall = ({ timeOnlyRef }) => {
 	useGSAP(() => {
 		gsap.set(".rain-drop", {
 			opacity: 0,
@@ -13,6 +13,9 @@ const RainFall = () => {
 			clipPath: "polygon(30% 10%, 10% 100%, 100% 100%)",
 			borderBottomLeftRadius: "100%",
 			borderBottomRightRadius: "100%",
+		});
+		gsap.set(".sun", {
+			opacity: 0.5,
 		});
 
 		gsap.to(".sun", {
@@ -63,6 +66,7 @@ const RainFall = () => {
 	return (
 		<>
 			<DaySky>
+				{/* Get the time and render the sky type conditionally */}
 				<div className="w-full overflow-hidden">
 					<div className="flex gap-2 ">
 						<Sun className="sun" />
